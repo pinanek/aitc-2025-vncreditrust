@@ -800,3 +800,15 @@ body {
         --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.5);
     }
 }
+
+.video-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    margin: auto;
+}
