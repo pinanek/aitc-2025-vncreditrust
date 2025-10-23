@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc Nghiệm An Toàn Thực Phẩm</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Màn hình Menu chính -->
+    <div id="menu-screen" class="screen active">
+        <div class="container">
+            <div class="header">
+                <div class="mascot">
+                    <img src="assets/mascot.jpeg" alt="Linh vật" class="mascot-img">
+                </div>
+                <h1 class="game-title">Trắc Nghiệm<br>An Toàn Thực Phẩm</h1>
+                <p class="game-subtitle">Học cách nhận biết thực phẩm an toàn!</p>
+            </div>
+            
+            <div class="menu-buttons">
+                <button class="btn btn-primary" onclick="showDifficultySelection()">
+                    <span class="btn-icon">🎮</span>
+                    Bắt Đầu Chơi
+                </button>
+                <button class="btn btn-secondary" onclick="showInstructions()">
+                    <span class="btn-icon">📖</span>
+                    Hướng Dẫn
+                </button>
+                <button class="btn btn-secondary" onclick="showSettings()">
+                    <span class="btn-icon">⚙️</span>
+                    Cài Đặt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Màn hình chọn độ khó -->
+    <div id="difficulty-screen" class="screen">
+        <div class="container">
+            <div class="header">
+                <button class="back-btn" onclick="showMenu()">←</button>
+                <h2>Chọn Độ Khó</h2>
+            </div>
+            
+            <div class="difficulty-options">
+                <button class="difficulty-card" onclick="startGame('easy')">
+                    <div class="difficulty-icon">🌱</div>
+                    <h3>Dễ</h3>
+                    <p>4 câu hỏi</p>
+                    <div class="difficulty-badge easy">Dành cho người mới</div>
+                </button>
+                
+                <button class="difficulty-card" onclick="startGame('medium')">
+                    <div class="difficulty-icon">🌿</div>
+                    <h3>Trung Bình</h3>
+                    <p>6 câu hỏi</p>
+                    <div class="difficulty-badge medium">Thử thách vừa phải</div>
+                </button>
+                
+                <button class="difficulty-card" onclick="startGame('hard')">
+                    <div class="difficulty-icon">🌳</div>
+                    <h3>Khó</h3>
+                    <p>8 câu hỏi</p>
+                    <div class="difficulty-badge hard">Thử thách cao</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Màn hình hướng dẫn -->
+    <div id="instructions-screen" class="screen">
+        <div class="container">
+            <div class="header">
+                <button class="back-btn" onclick="showMenu()">←</button>
+                <h2>Hướng Dẫn</h2>
+            </div>
+            
+            <div class="instructions-content">
+                <div class="instruction-step">
+                    <div class="step-icon">1️⃣</div>
+                    <div class="step-content">
+                        <h3>Chọn Độ Khó</h3>
+                        <p>Chọn mức độ phù hợp với khả năng của bạn</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-icon">2️⃣</div>
+                    <div class="step-content">
+                        <h3>Trả Lời Câu Hỏi</h3>
+                        <p>Nhìn vào hình ảnh và chọn "An Toàn" hoặc "Nguy Hiểm"</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-icon">3️⃣</div>
+                    <div class="step-content">
+                        <h3>Học Từ Kết Quả</h3>
+                        <p>Xem giải thích để hiểu thêm về an toàn thực phẩm</p>
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-icon">4️⃣</div>
+                    <div class="step-content">
+                        <h3>Hoàn Thành</h3>
+                        <p>Xem điểm số và chơi lại để cải thiện</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Màn hình cài đặt -->
+    <div id="settings-screen" class="screen">
+        <div class="container">
+            <div class="header">
+                <button class="back-btn" onclick="showMenu()">←</button>
+                <h2>Cài Đặt</h2>
+            </div>
+            
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label for="sound-toggle">Âm thanh</label>
+                    <input type="checkbox" id="sound-toggle" checked>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="vibration-toggle">Rung</label>
+                    <input type="checkbox" id="vibration-toggle" checked>
+                </div>
+                
+                <div class="setting-item">
+                    <label for="theme-select">Chủ đề</label>
+                    <select id="theme-select">
+                        <option value="light">Sáng</option>
+                        <option value="dark">Tối</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Màn hình game -->
+    <div id="game-screen" class="screen">
+        <div class="container">
+            <div class="game-header">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="timer-display">
+                    <span class="timer-label">Thời gian:</span>
+                    <span class="timer-value" id="timer-value">10</span>
+                </div>
+                <div class="score-display">
+                    <span class="score-label">Điểm:</span>
+                    <span class="score-value" id="score-value">0</span>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-text">
+                    <h3 id="question-title">Thực phẩm này có an toàn không?</h3>
+                </div>
+                
+                <div class="image-options">
+                    <div class="image-option" onclick="selectImage(true)">
+                        <div class="image-container">
+                            <img id="option-true" src="" alt="Lựa chọn 1" class="option-image">
+                            <div class="image-overlay">
+                                <span class="option-label">Chọn</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="image-option" onclick="selectImage(false)">
+                        <div class="image-container">
+                            <img id="option-false" src="" alt="Lựa chọn 2" class="option-image">
+                            <div class="image-overlay">
+                                <span class="option-label">Chọn</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Màn hình kết quả -->
+    <div id="result-screen" class="screen">
+        <div class="container">
+            <div class="result-content">
+                <div class="result-icon" id="result-icon">🎉</div>
+                <h2 id="result-title">Chúc Mừng!</h2>
+                <p id="result-message">Bạn đã hoàn thành trò chơi!</p>
+                
+                <div class="score-summary">
+                    <div class="score-item">
+                        <span class="score-label">Điểm số:</span>
+                        <span class="score-value" id="final-score">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Câu đúng:</span>
+                        <span class="score-value" id="correct-answers">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Tổng câu:</span>
+                        <span class="score-value" id="total-questions">0</span>
+                    </div>
+                </div>
+                
+                <div class="result-buttons">
+                    <button class="btn btn-primary" onclick="playAgain()">
+                        <span class="btn-icon">🔄</span>
+                        Chơi Lại
+                    </button>
+                    <button class="btn btn-secondary" onclick="showMenu()">
+                        <span class="btn-icon">🏠</span>
+                        Về Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Đang tải...</p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

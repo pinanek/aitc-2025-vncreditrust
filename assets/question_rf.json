@@ -1,0 +1,22 @@
+{
+    "1": {
+        "question": "Gói bim bim nào là 'hàng xịn' đáng tin cậy để bạn chọn?",
+        "correct_answer": "assets/RF/RF_0_0.png"
+    },
+    "2": {
+        "question": "Chai nước ngọt nào an toàn để giải khát dưới trời nắng?",
+        "correct_answer": "assets/RF/RF_1_0.png"
+    },
+    "3": {
+        "question": "Xiên xúc xích nào trông có vẻ 'ngon-sạch-chuẩn' nhất?",
+        "correct_answer": "assets/RF/RF_2_0.png"
+    },
+    "4": {
+        "question": "Bạn An muốn mua một cây kẹo mút, hãy giúp bạn ấy chọn cây kẹo an toàn nhé!",
+        "correct_answer": "assets/RF/RF_3_0.png"
+    },
+    "5": {
+        "question": "Ly trà đá nào là lựa chọn 'chuẩn không cần chỉnh' cho giờ ra chơi?",
+        "correct_answer": "assets/RF/RF_4_0.png"
+    }
+}

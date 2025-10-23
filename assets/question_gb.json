@@ -1,0 +1,22 @@
+{
+    "1": {
+        "question": "Xiên que nào trông 'uy tín' và an toàn để thưởng thức nhỉ?",
+        "correct_answer": "assets/GB/GB_0_0.png"
+    },
+    "2": {
+        "question": "Ly trà sữa nào có nguồn gốc rõ ràng, đảm bảo chất lượng?",
+        "correct_answer": "assets/GB/GB_1_0.png"
+    },
+    "3": {
+        "question": "Bạn hãy giúp chọn gói bim bim 'chính hãng' nhé!",
+        "correct_answer": "assets/GB/GB_2_0.png"
+    },
+    "4": {
+        "question": "Suất bánh tráng trộn nào được chế biến hợp vệ sinh?",
+        "correct_answer": "assets/GB/GB_3_0.png"
+    },
+    "5": {
+        "question": "Những viên kẹo màu sắc này, loại nào là an toàn để ăn?",
+        "correct_answer": "assets/GB/GB_4_0.png"
+    }
+}
