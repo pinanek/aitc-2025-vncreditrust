@@ -1,10 +1,4 @@
 {
   "version": 2,
-  "name": "trắc-nghiệm-an-toàn-thực-phẩm",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "name": "trắc-nghiệm-an-toàn-thực-phẩm"
 }
